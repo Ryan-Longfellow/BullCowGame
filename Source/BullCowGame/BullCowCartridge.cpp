@@ -22,46 +22,8 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     }
     else
     {
-        // Check if Input from user matches HiddenWord
-        if (Input == HiddenWord)
-        {
-            PrintLine(TEXT("You win!"));
-            EndGame();
-        }
-        else
-        {
-            PrintLine(TEXT("Sorry, try guessing again!\nYou have %i lives left."), --Lives);
-            if (Lives > 0)
-            {
-                // Check if right number of characters
-                if (Input.Len() != HiddenWord.Len())
-                {
-                    PrintLine(TEXT("The Hidden Word is %i characters long, try again!"), HiddenWord.Len());
-                    // Prompt to GuessAgain
-                }
-            }
-            else
-            {
-                PrintLine(TEXT("You lose!"));
-                EndGame();
-            }
-            
-        }
+        ProcessGuess(Input);
     }
-
-    // Check if isogram
-    // Prompt to GuessAgain
-    
-    // Subtract life
-    // Show lives left
-    // Check if lives > 0
-    // If yes GuessAgain
-    // If no show GameOver and HiddenWord
-    // Press Enter to PlayAgain
-    // Check User Input
-    // PlayAgain or Quit
-
-    
 }
 
 void UBullCowCartridge::SetupGame()
@@ -85,4 +47,45 @@ void UBullCowCartridge::EndGame()
 
     PrintLine(TEXT("Press ENTER to continue."));
 
+}
+
+void UBullCowCartridge::ProcessGuess(FString Guess)
+{
+    // Check if Input from user matches HiddenWord
+    if (Guess == HiddenWord)
+    {
+        PrintLine(TEXT("You win!"));
+        EndGame();
+    }
+    else
+    {
+        PrintLine(TEXT("Sorry, try guessing again!\nYou have %i lives left."), --Lives);
+        if (Lives > 0)
+        {
+            // Check if right number of characters
+            if (Guess.Len() != HiddenWord.Len())
+            {
+                PrintLine(TEXT("The Hidden Word is %i characters long, try again!"), HiddenWord.Len());
+                // Prompt to GuessAgain
+            }
+        }
+        else
+        {
+            PrintLine(TEXT("You lose!"));
+            EndGame();
+        }
+        
+    }
+
+    // Check if isogram
+    // Prompt to GuessAgain
+    
+    // Subtract life
+    // Show lives left
+    // Check if lives > 0
+    // If yes GuessAgain
+    // If no show GameOver and HiddenWord
+    // Press Enter to PlayAgain
+    // Check User Input
+    // PlayAgain or Quit
 }
