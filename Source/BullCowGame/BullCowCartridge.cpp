@@ -7,12 +7,12 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 
     SetupGame();
 
-    PrintLine((TEXT("The HiddenWord is: %s"), *HiddenWord)); // Debug Line
+    // PrintLine(TEXT("The HiddenWord is: %s.\nIt is %i characters long."), *HiddenWord, HiddenWord.Len()); // Debug Line
 
     // Welcome the player
     PrintLine(TEXT("Welcome to Bull Cows!"));
     PrintLine(TEXT("Guess the %i letter word"), HiddenWord.Len());
-    PrintLine(TEXT("Press enter to continue..."));
+    PrintLine(TEXT("Type in your guess.\nPress enter to continue..."));
 
 }
 
