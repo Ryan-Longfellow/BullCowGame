@@ -44,7 +44,6 @@ void UBullCowCartridge::SetupGame()
 void UBullCowCartridge::EndGame()
 {
     bGameOver = true;
-
     PrintLine(TEXT("Press ENTER to continue."));
 
 }
@@ -96,11 +95,13 @@ void UBullCowCartridge::ProcessGuess(FString Guess)
 
 bool UBullCowCartridge::IsIsogram(FString Word) const
 {
-    // For each letter
-    // Start at element[0]
-    // Compare against the next letter
-    // Until we reach [Word.Len() - 1]
-    // if any letters are the same; return false;
-    // else return true;
+    for (int32 Index = 0; Index < Word.Len(); Index++)
+    {
+        for (int32 Comparison = Index + 1; Comparison < Word.Len(); Comparison++)
+        {
+            if (Word[Index] == Word[Comparison]) return false;
+        }
+    }
+    
     return true;
 }
