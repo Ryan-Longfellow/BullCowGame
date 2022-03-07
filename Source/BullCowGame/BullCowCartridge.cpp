@@ -76,7 +76,7 @@ void UBullCowCartridge::ProcessGuess(const FString& Guess)
     // Check if isogram
     if (!IsIsogram(Guess))
     {
-        PrintLine(TEXT("No repeating letters, guess again,"));
+        PrintLine(TEXT("No repeating letters, guess again."));
         return;
     }
 
