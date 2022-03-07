@@ -94,7 +94,7 @@ void UBullCowCartridge::ProcessGuess(FString Guess)
     // Show player Bulls and Cows
 }
 
-bool UBullCowCartridge::IsIsogram(FString Word)
+bool UBullCowCartridge::IsIsogram(FString Word) const
 {
     // For each letter
     // Start at element[0]
