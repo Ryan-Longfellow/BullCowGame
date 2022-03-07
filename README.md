@@ -1,5 +1,7 @@
 # BullCowGame
 
+Game created by following the Udemy course here: https://www.udemy.com/course/unrealcourse/
+
 Purpose of the game and how to play:
 - Word guessing game.
 - Guess the Isogram...
