@@ -59,12 +59,6 @@ void UBullCowCartridge::ProcessGuess(FString Guess)
         return;
     }
 
-    // // Check if isogram
-    // if (!IsIsogram)
-    // {
-    //     PrintLine(TEXT("No repeating letters, guess again,"));
-    // }
-
     // Check if Input from user matches HiddenWord
     if (Guess == HiddenWord)
     {
@@ -76,10 +70,17 @@ void UBullCowCartridge::ProcessGuess(FString Guess)
         return;
     }
 
+    // Check if isogram
+    if (!IsIsogram(Guess))
+    {
+        PrintLine(TEXT("No repeating letters, guess again,"));
+        return;
+    }
+
     // If all checks pass, subtract life and show remaining lives
     PrintLine(TEXT("Sorry, try guessing again!\nYou have %i lives left."), --Lives);
 
-    // Check if lives are left
+    // Check if no lives are left
     if (Lives <= 0)
     {
         ClearScreen();
@@ -90,10 +91,16 @@ void UBullCowCartridge::ProcessGuess(FString Guess)
         return;
     }
 
-
     // Show player Bulls and Cows
-    PrintLine(TEXT("Guess again, you have %i lives left."), Lives);
-    // If no show GameOver and HiddenWord
-    // Check User Input
-    // PlayAgain or Quit
+}
+
+bool UBullCowCartridge::IsIsogram(FString Word)
+{
+    // For each letter
+    // Start at element[0]
+    // Compare against the next letter
+    // Until we reach [Word.Len() - 1]
+    // if any letters are the same; return false;
+    // else return true;
+    return true;
 }
